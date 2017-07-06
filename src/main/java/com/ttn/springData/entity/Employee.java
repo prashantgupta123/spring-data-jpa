@@ -1,12 +1,12 @@
 package com.ttn.springData.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@NamedNativeQuery(name = "Employee.findByNameIs",
+        query = "SELECT * from Employee where name = :name",
+        resultClass = Employee.class)
 public class Employee implements Serializable {
 
     @Id
